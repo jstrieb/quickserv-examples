@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Movie List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <ul id="movielist"></ul>
+    <br />
+    <input type="text" id="movieName" placeholder="Add a new movie" /><input
+      id="addBtn"
+      type="button"
+      onclick="addMovie()"
+      value="Add"
+    />
+    <div id="output"></div>
+  </body>
+
+  <script>
+    function updateMovie(movie) {
+      let outputElem = document.getElementById("output");
+      fetch("/updateMovie.ts", {
+        method: "POST",
+        body: JSON.stringify(movie),
+      })
+        .then((resp) => {
+          if (resp.ok) {
+            outputElem.innerText = `Set ${movie.title} to ${movie.watched} successfully`;
+          } else {
+            outputElem.innerText = `Error updating ${movie.title}: response code ${resp.status}`;
+          }
+        })
+        .catch((err) => {
+          outputElem.innerText = `Error updating ${movie.title}: ${err}`;
+        })
+        .finally(() => {
+          getMovies();
+        });
+    }
+    function addMovie() {
+      let movieNameElem = document.getElementById("movieName");
+      let addBtnElem = document.getElementById("addBtn");
+      let outputElem = document.getElementById("output");
+      movieNameElem.disabled = true;
+      addBtnElem.disabled = true;
+      fetch("/addMovie.ts", {
+        method: "POST",
+        body: JSON.stringify({
+          title: movieNameElem.value,
+        }),
+      })
+        .then((resp) => {
+          if (resp.ok) {
+            outputElem.innerText = `Added ${movieNameElem.value} successfully`;
+          } else {
+            outputElem.innerText = `Error adding ${movieNameElem.value}: response code ${resp.status}`;
+          }
+        })
+        .catch((err) => {
+          outputElem.innerText = `Error adding ${movieNameElem.value}: ${err}`;
+        })
+        .finally(() => {
+          movieNameElem.disabled = false;
+          addBtnElem.disabled = false;
+          getMovies();
+        });
+    }
+    function deleteMovie(movie) {
+      let outputElem = document.getElementById("output");
+      fetch("/deleteMovie.ts", {
+        method: "POST",
+        body: JSON.stringify(movie),
+      })
+        .then((resp) => {
+          if (resp.ok) {
+            outputElem.innerText = `Deleted ${movie.title} successfully`;
+          } else {
+            outputElem.innerText = `Error deleting ${movie.title}: response code ${resp.status}`;
+          }
+        })
+        .catch((err) => {
+          outputElem.innerText = `Error deleting ${movie.title}: ${err}`;
+        })
+        .finally(() => {
+          getMovies();
+        });
+    }
+    function getMovies() {
+      fetch("/getMovies.ts", {
+        method: "GET",
+      })
+        .then((response) => response.json())
+        .then((movielist) => {
+          const ul = document.getElementById("movielist");
+          ul.innerHTML = "";
+          for (let i = 0; i < movielist.length; i++) {
+            const movie = movielist[i];
+            const li = document.createElement("li");
+            const check = document.createElement("input");
+            check.id = movie.id;
+            check.checked = movie.watched;
+            check.onchange = () => {
+              const updatedMovie = {};
+              Object.assign(updatedMovie, movie);
+              updatedMovie.watched = !updatedMovie.watched;
+              updateMovie(updatedMovie);
+            };
+            check.type = "checkbox";
+            const label = document.createElement("label");
+            label.htmlFor = movie.id;
+            label.innerText = movie.title;
+            const delBtn = document.createElement("button");
+            delBtn.innerText = "X";
+            delBtn.style.marginLeft = "10px";
+            delBtn.onclick = () => {
+              deleteMovie(movie);
+            };
+            li.appendChild(check);
+            li.appendChild(label);
+            li.appendChild(delBtn);
+            ul.appendChild(li);
+          }
+        });
+    }
+    window.onload = function () {
+      getMovies();
+    };
+  </script>
+</html>
