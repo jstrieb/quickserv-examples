@@ -25,4 +25,12 @@ Example applications designed to be run with [QuickServ](https://github.com/jstr
 <td><div align="center">✓</div></td>
 </tr>
 
+<tr>
+<td><a href="movie-list">Movie List</a></td>
+<td>TypeScript</td>
+<td><div align="center">✓</div></td>
+<td><div align="center">✓</div></td>
+<td><div align="center">✓</div></td>
+</tr>
+
 </table>
