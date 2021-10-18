@@ -16,3 +16,5 @@ want to the stack, can print whatever they want to the standard output, and is
 free to create infinite loops.
 
 Requires a C compiler with a built-in assembler. Tested with `gcc`.
+
+Code from: <https://github.com/jstrieb/brainfuck>

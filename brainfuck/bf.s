@@ -1,6 +1,8 @@
 /***
  * Created by Jacob Strieb
  * July 2021
+ *
+ * From: https://github.com/jstrieb/brainfuck
  */
 
 .global _start
