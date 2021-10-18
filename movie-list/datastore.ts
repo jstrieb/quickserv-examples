@@ -2,7 +2,7 @@ import type Movie from "./movie.ts";
 
 const decoder = new TextDecoder("utf-8");
 const encoder = new TextEncoder();
-const STOREFILE = "./store.json";
+const STOREFILE = "../store.json";
 
 const writeAll = async(data : Uint8Array) => {
     const file = await Deno.open(STOREFILE, { write: true, create: true, truncate: true })

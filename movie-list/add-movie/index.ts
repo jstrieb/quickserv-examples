@@ -1,4 +1,4 @@
-#!deno run --allow-read=./store.json --allow-write=./store.json
+#!deno run --allow-read=../store.json --allow-write=../store.json
 import type Movie from "../movie.ts";
 import { newMovie } from "../datastore.ts";
 
