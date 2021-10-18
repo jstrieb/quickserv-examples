@@ -25,4 +25,12 @@ Example applications designed to be run with [QuickServ](https://github.com/jstr
 <td><div align="center">✓</div></td>
 </tr>
 
+<tr>
+<td><a href="brainfuck">Brainfuck interpreter</a></td>
+<td>x86-64 Assembly</td>
+<td><div align="center">✗</div></td>
+<td><div align="center">✗</div></td>
+<td><div align="center">✓</div></td>
+</tr>
+
 </table>
