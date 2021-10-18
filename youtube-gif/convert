@@ -1,0 +1,43 @@
+#!/bin/bash
+
+set -e
+
+YDL="$(which youtube-dl)"
+
+# Store input in an environment variables
+INPUT="$(tee /dev/null)"
+
+# Get a variable by name and replace URL-encoded characters. Note that the order
+# of replacement matters; "%" must be replaced last!
+function getvar() {
+  grep --only-matching "$1"'=\([^=\&]*\)' \
+  | sed 's/'"$1"'=\([^=\&]*\)/\1/' \
+  | sed 's/%3[Dd]/=/g' \
+  | sed 's/%26/\&/g' \
+  | sed 's/%25/%/g'
+}
+
+# Parse expected input variables and set default values
+URL="$(echo "$INPUT" | getvar url)"
+START="$(echo "$INPUT" | getvar start-time)"
+if [ -z "$START" ]; then
+  START=0
+fi
+DURATION="$(echo "$INPUT" | getvar duration)"
+if [ -z "$DURATION" ]; then
+  DURATION=5
+fi
+
+# Get download URL
+DOWN_URL="$("$YDL" --get-url --format "bestvideo[height<=480]" "$URL" \
+  || "$YDL" --get-url --format "bestvideo[height<=720]" "$URL" \
+  || "$YDL" --get-url --format "best" "$URL")"
+
+# Return the result to the user
+ffmpeg \
+  -hide_banner -loglevel error \
+  -ss "$START" \
+  -t "$DURATION" \
+  -i "$DOWN_URL" \
+  -f gif \
+  -

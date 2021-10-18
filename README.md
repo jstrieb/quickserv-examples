@@ -18,11 +18,11 @@ Example applications designed to be run with [QuickServ](https://github.com/jstr
 </tr>
 
 <tr>
-<td>Summary</td>
-<td>Language</td>
+<td><a href="youtube-gif">YouTube URL to GIF</a></td>
+<td>Shell</td>
+<td><div align="center">✗</div></td>
 <td><div align="center">✓</div></td>
-<td><div align="center">✗</div></td>
-<td><div align="center">✗</div></td>
+<td><div align="center">✓</div></td>
 </tr>
 
 </table>
