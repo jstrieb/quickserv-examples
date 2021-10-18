@@ -1,5 +1,5 @@
 #!deno run --allow-read="./store.json"
-import { getMovieList } from "./datastore.ts";
+import { getMovieList } from "../datastore.ts";
 
 let movies : Movie[] = []
 try {

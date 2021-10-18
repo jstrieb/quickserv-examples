@@ -1,6 +1,6 @@
 #!deno run --allow-read=./store.json --allow-write=./store.json
-import type Movie from "./movie.ts";
-import { setMovie } from "./datastore.ts";
+import type Movie from "../movie.ts";
+import { setMovie } from "../datastore.ts";
 
 const buf = new Uint8Array(2048);
 const n = await Deno.stdin.read(buf);
