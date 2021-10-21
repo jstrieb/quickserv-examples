@@ -16,11 +16,6 @@ CFLAGS = -std=gnu99 \
 				 -Werror \
 				 -O3
 
-# NOTE: In compilation commands, libraries for linker must come after code
-# using the libraries. See:
-# https://stackoverflow.com/a/409402/1376127
-LDLIBS = -lz
-
 ################################################################################
 # Generate bloom filters from the command line
 ################################################################################
@@ -32,5 +27,4 @@ bloom-create: murmur.c bloom.c bloom-create.c
 	$(CC) \
 		$(CFLAGS) \
 		$(filter %.c, $^) \
-		$(LDLIBS) \
 		-o $@
