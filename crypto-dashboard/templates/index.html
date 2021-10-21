@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crypto Dashboard</title>
+  </head>
+  <body>
+    {{ if ne .Error "" }}
+    <div>{{ .Error }}</div>
+    {{ else }}
+    <table>
+      <tr>
+        <th>Symbol</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+      {{ range .Prices }}
+      <tr>
+        <td>{{ .Symbol }}</td>
+        <td>${{ .Price }}</td>
+        <td>
+          <form action="/" method="post">
+            <input type="hidden" name="action" value="delete" />
+            <input type="hidden" name="symbol" value={{ .Symbol }} />
+            <button>DELETE</button>
+          </form>
+        </td>
+      </tr>
+      {{ end }}
+    </table>
+    {{ end }}
+    <form action="/" method="post">
+        <input type="hidden" name="action" value="save" />
+      <input type="text" name="symbol" placeholder="Enter a Symbol" />
+      <button>SAVE</button>
+    </form>
+    <a href="/">Refresh</a>
+  </body>
+</html>
