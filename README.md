@@ -66,3 +66,23 @@ Example applications designed to be run with [QuickServ](https://github.com/jstr
 </tr>
 
 </table>
+
+
+# Running the Examples
+
+1. [Download the
+   examples](https://github.com/jstrieb/quickserv-examples/archive/refs/heads/master.zip)
+   and unzip the folder.
+1. Download dependencies for the example you want to run, and compile the
+   example if necessary. Each example has a `README.md` file specifying how to
+   run the code, and what dependencies are required.
+1. [Download QuickServ](https://github.com/jstrieb/quickserv/#get-started).
+1. Drag the `quickserv` executable you downloaded into the unzipped folder.
+1. Double click the `quickserv` executable.
+1. Go to <http://localhost:42069> in your browser.
+
+
+# Disclaimer
+
+These examples are not built securely. [They should not be run on the open
+Internet.](https://github.com/jstrieb/quickserv#disclaimer).
