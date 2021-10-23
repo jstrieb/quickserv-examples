@@ -36,6 +36,7 @@
 *.x86_64
 *.hex
 quickserv
+crypto-dashboard/index
 bin/*
 
 # Debug files
@@ -55,3 +56,6 @@ dkms.conf
 # Vim temporary files
 *.swp
 *.swo
+
+# Database files
+crypto-dashboard/symbols.json
