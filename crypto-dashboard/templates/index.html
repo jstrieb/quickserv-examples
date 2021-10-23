@@ -18,7 +18,7 @@
         <td>{{ .Symbol }}</td>
         <td>${{ .Price }}</td>
         <td>
-          <form action="/" method="post">
+          <form action="./" method="post">
             <input type="hidden" name="action" value="delete" />
             <input type="hidden" name="symbol" value={{ .Symbol }} />
             <button>DELETE</button>
@@ -28,11 +28,11 @@
       {{ end }}
     </table>
     {{ end }}
-    <form action="/" method="post">
+    <form action="./" method="post">
         <input type="hidden" name="action" value="save" />
       <input type="text" name="symbol" placeholder="Enter a Symbol" />
       <button>SAVE</button>
     </form>
-    <a href="/">Refresh</a>
+    <a href="./">Refresh</a>
   </body>
 </html>
