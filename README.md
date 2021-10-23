@@ -58,7 +58,7 @@ Example applications designed to be run with [QuickServ](https://github.com/jstr
 </tr>
   
 <tr>
-<td><a href="crypto-dashboard">Crypto Dashboard</a></td>
+<td><a href="crypto-dashboard">Cryptocurrency dashboard</a></td>
 <td>Go</td>
 <td><div align="center">✓</div></td>
 <td><div align="center">✓</div></td>
