@@ -155,7 +155,7 @@ func loadPage(errString string) {
 }
 
 func getPriceForSymbol(symbol string) (string, error) {
-	url := "https://api.binance.com/api/v3/avgPrice?symbol=" + symbol + "USDT"
+	url := "https://api.binance.com/api/v3/avgPrice?symbol=" + symbol + "USDC"
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
