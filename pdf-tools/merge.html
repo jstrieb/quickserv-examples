@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Merge PDF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+function addfile(form) {
+  let i = document.createElement("input");
+  i.type = "file";
+  i.name = "file" + (document.querySelectorAll('input[type="file"]').length + 1);
+  i.accept = ".pdf";
+  form.appendChild(i);
+}
+</script>
+<style>
+input {
+  display: block;
+}
+</style>
+</head>
+<body>
+    <h2>Merge PDF</h2>
+    <button onclick="addfile(document.querySelector('form')); return false">Add File</button><br><br>
+    <form action="merge" method="POST" enctype="multipart/form-data">
+        <button>Merge</button>
+        <input type="file" name="file1" accept=".pdf">
+    </form>
+</body>
+</html>
