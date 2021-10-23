@@ -1,6 +1,6 @@
 function doSubmit() {
     const text = document.querySelector("textarea")
-    fetch("bloom-create.exe", {
+    fetch("bloom-create", {
         method: "POST",
         body: text.value,
     })
