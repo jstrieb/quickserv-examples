@@ -25,11 +25,14 @@ var MaxSymbols = 25
 var t = template.Must(template.New("index.html").ParseFiles("templates/index.html"))
 
 func main() {
-	switch strings.ToUpper(os.Getenv("REQUEST_METHOD")) {
+	method := strings.ToUpper(os.Getenv("REQUEST_METHOD"))
+	switch method {
 	case "POST":
 		doSymbolAction()
 	case "GET":
 		loadPage("")
+	default:
+		loadPage(fmt.Sprintf("Unsupported request method: %s", method))
 	}
 }
 
