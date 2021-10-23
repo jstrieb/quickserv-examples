@@ -1,0 +1,5 @@
+# Ignore HTML files in stats
+*.html -linguist-detectable
+
+# Recognize .h files as C files
+*.h linguist-language=C
