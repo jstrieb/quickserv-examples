@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Typeset Markdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      textarea {
+        width: 70%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Enter markdown to typeset below.</p>
+    <form action="typeset" method="POST">
+      <textarea rows="30" name="markdown">---
+title: Some Title
+author: Your Name Here
+emailname: emailprefix
+emaildomain: gmail.com
+...
+
+\maketitle
+\newpage
+
+# First section
+
+Enter your markdown here!
+
+It works with inline math $\left(\frac 1 x + 2 = \alpha \cdot \beta\right)$ and math evironments:
+
+$$ x + y = \sum_{n = 0}^\infty \frac {2n} {n!} \cdot \sin n = \int_0^\infty \frac {\ln 3x} x ~dx $$
+
+## First subsection
+
+There is also support for footnotes, inline links, etc.^[See! Check out this link! <https://example.com>]
+
+---
+
+Furthermore, there is support for code syntax highlighting:
+
+``` python
+import random
+
+"""
+The code below does some stuff
+"""
+
+def test(f, g):
+    # Now we will apply f to g
+    print(f(g))
+
+if __name__ == "__main__":
+    test(lambda x: x + 10, 20)
+```
+
+---
+
+Now your *typeset* documents will look **just** like my ~~high school~~ college math homework!
+</textarea><br>
+      <button>Open PDF</button>
+    </form>
+  </body>
+</html>
