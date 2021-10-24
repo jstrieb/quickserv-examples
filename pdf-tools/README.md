@@ -15,5 +15,5 @@ This code depends on having the following command line tools installed:
 
 - `qpdf`
 - `imagemagick`
-- `pdfunite`
+- `pdfunite` (`poppler-utils`)
 - `gs` (GhostScript)

@@ -25,3 +25,4 @@ converted = subprocess.run(
 )
 
 sys.stdout.buffer.write(converted.stdout)
+sys.stderr.buffer.write(converted.stderr)

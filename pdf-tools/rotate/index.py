@@ -29,3 +29,4 @@ with tempfile.NamedTemporaryFile() as f:
     )
 
 sys.stdout.buffer.write(converted.stdout)
+sys.stderr.buffer.write(converted.stderr)
