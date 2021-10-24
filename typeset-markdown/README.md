@@ -2,8 +2,11 @@
 
 Typeset Markdown and generate PDF files. Depends on: 
 
+- MLton
 - Pandoc
 - LaTeX
+
+Compile `typeset` with `make` once the dependencies are installed.
 
 ## Example
 
