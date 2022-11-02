@@ -92,6 +92,14 @@ Example applications designed to be run with [QuickServ](https://github.com/jstr
 1. Download dependencies for the example you want to run, and compile the
    example if necessary. Each example has a `README.md` file specifying how to
    run the code, and what dependencies are required.
+
+   Alternatively, run the following command (on Linux or macOS) to run `make`
+   in every directory with a `Makefile` if you're confident you have all of the
+   dependencies.
+
+   ``` bash
+   find . -iname makefile | xargs dirname | xargs -I {} make -C {}
+   ```
 1. [Download QuickServ](https://github.com/jstrieb/quickserv/#get-started).
 1. Drag the `quickserv` executable you downloaded into the unzipped folder.
 1. Double click the `quickserv` executable.
