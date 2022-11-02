@@ -19,7 +19,7 @@
   <script>
     function updateMovie(movie) {
       let outputElem = document.getElementById("output");
-      fetch("/update-movie/", {
+      fetch("update-movie", {
         method: "POST",
         body: JSON.stringify(movie),
       })
@@ -43,7 +43,7 @@
       let outputElem = document.getElementById("output");
       movieNameElem.disabled = true;
       addBtnElem.disabled = true;
-      fetch("/add-movie/", {
+      fetch("add-movie", {
         method: "POST",
         body: JSON.stringify({
           title: movieNameElem.value,
@@ -67,7 +67,7 @@
     }
     function deleteMovie(movie) {
       let outputElem = document.getElementById("output");
-      fetch("/delete-movie/", {
+      fetch("delete-movie", {
         method: "POST",
         body: JSON.stringify(movie),
       })
@@ -86,7 +86,7 @@
         });
     }
     function getMovies() {
-      fetch("/get-movies/", {
+      fetch("get-movies", {
         method: "GET",
       })
         .then((response) => response.json())

@@ -30,3 +30,4 @@ compressed = subprocess.run(
 )
 
 sys.stdout.buffer.write(compressed.stdout)
+sys.stderr.buffer.write(compressed.stderr)

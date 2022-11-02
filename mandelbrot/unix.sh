@@ -15,7 +15,7 @@ if [ -z "$DURATION" ]; then
   DURATION=5
 fi
 
-ffmpeg.exe \
+ffmpeg \
   -hide_banner -loglevel error \
   -y \
   -filter_complex "mandelbrot=size=640x360[v]" \
